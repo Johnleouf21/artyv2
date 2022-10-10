@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ethers } from 'ethers';
 import Head from 'next/head';
-import Contract from '../artifacts/contracts/DefiLottery.sol/DefiLottery.json';
+import Contract from '../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
 
 
 
