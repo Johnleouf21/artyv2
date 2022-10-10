@@ -195,7 +195,7 @@ export default function Mintz() {
 
 
     useEffect(() => {
-        getAccounts();
+       getAccounts();
         setLoader(false); 
         fetchData()
       }, [accounts[0]])
@@ -372,26 +372,25 @@ async function getAccounts() {
             A propos
           </a>
         </li>
-        {address && (
-          <div className="grid">
-            <div>
-              <p className="mb-1">Network:</p>
-              <p>{chainData?.name}</p>
-            </div>
-            <div>
-              <p className="mb-1">Address:</p>
-              <p>{ellipseAddress(address)}</p>
-            </div>
-          </div>
-        )}
         {web3Provider ? (
         <button id="walletBTN" onClick={disconnect}>
-        Disconnect</button>
+        Disconnect  {ellipseAddress(address)}</button>
         ) : (
           <button id="walletBTN" onClick={connect}>
           Connect
         </button>
       )}
+        {address && (
+          <div className="grid">
+            <div>
+              <p className="mb-1">Network : {chainData?.name}</p>
+            </div>
+            <div>
+              <p className="mb-1">Balance : {balance} {chainData?.chain}</p>
+            </div>
+          </div>
+        )}
+        
         <h10>
           <span id="showAccount" />
         </h10>
@@ -407,8 +406,8 @@ async function getAccounts() {
             className="marketplace-photo-nft-border-1"
             src="/image/discordpdp.png"
             alt="bob"
-            width={700}
-            height={700}
+            width={600}
+            height={600}
           />
         </div>
       </div>
@@ -424,7 +423,7 @@ async function getAccounts() {
             <div className="btn-marketplace-ul-text-container">
               <h3>Solde</h3>
               <div className="btn-marketplace-ul-text-void" />
-              <p>0.013 ETH</p>
+              <p>{data.priceSale/10**18} MATIC</p>
             </div>
             <div className="btn-marketplace-ul-text-line" />
           </div>
@@ -459,7 +458,7 @@ async function getAccounts() {
             <div className="btn-marketplace-ul-text-container">
               <h3>Total</h3>
               <div className="btn-marketplace-ul-text-void" />
-              <p>{data.priceSale/10**18 * ammount} ETH</p>
+              <p>{data.priceSale/10**18 * ammount} MATIC</p>
             </div>
             <div className="btn-marketplace-ul-text-line" />
           </div>
