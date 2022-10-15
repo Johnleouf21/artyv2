@@ -5,7 +5,7 @@ import { FR, GB, BR } from 'country-flag-icons/react/3x2'
 
 
 
-export default function Home() { 
+export default function HomeBR() { 
   
   
 
@@ -28,9 +28,11 @@ export default function Home() {
               <div className="action">
                 <div className="profile" >
                   <li className="reglage">
+                    <Link href="/">
                     <a className="Réglages du site">
-                      <FR width={23}/><i className="fa-solid fa-circle-check" />
+                      <FR width={23}/>
                     </a>
+                    </Link>
                   </li>
                   <li className="reglage">
                     <Link href="/HomeGB">
@@ -40,11 +42,9 @@ export default function Home() {
                     </Link>
                   </li>
                   <li className="reglage">
-                    <Link href="HomeBR">
                     <a className="Réglages du site">
-                      <BR width={23}/>
+                      <BR width={23}/><i className="fa-solid fa-circle-check" />
                     </a>
-                    </Link>
                   </li>
                 </div>
                 </div>
@@ -73,15 +73,15 @@ export default function Home() {
               </li>
               <li id="apropos">
                 <a href="#about" title="Pour mieux comprendre notre projet">
-                  a propos
+                  cerca de
                 </a>
               </li>
               <li className="nav-roadmap">
-                <a href="FRroadmap.html">Road Map</a>
+                <a href="FRroadmap.html">Roteiro</a>
               </li>
               <button id="btnmarketplace" title="Accédez à la collection NFT">
                 <Link href="/Mint">
-                <a>Marketplace NFT</a>
+                <a>Mercado NFT</a>
                 </Link>
               </button>
             </ul>
@@ -90,9 +90,9 @@ export default function Home() {
             <div className="mainPage-text">
               <h1>DeFi Lottery</h1>
               <div id="premierTrait" />
-              <h3>100% Décentralisée, 100% Sécurisé</h3>
+              <h3>100% descentralizado, 100% seguro</h3>
               <h3>
-                Loterie géré par <strong>vous</strong>
+              Loteria administrada por <strong>voce</strong>
               </h3>
             </div>
             {/* <div class="mainPage-btn">
@@ -107,7 +107,7 @@ export default function Home() {
           <h4>
             <a className="splitchange-more" href="#presentation">
               {" "}
-              En apprendre plus sur le projet{" "}
+              Saiba mais sobre o projeto{" "}
               <i className="fa-solid fa-chevron-down" />
             </a>
           </h4>
@@ -116,21 +116,19 @@ export default function Home() {
           <div id="about">
             <div className="about-textcontainer">
               <div className="textTitleLeft">
-                <h2>Explication du projet</h2>
+                <h2>Explicação do projeto</h2>
               </div>
               <div className="textParagrapheLeft">
                 <p>
-                  DeFi Lottery est une Lottery <strong>100% Décentralisée</strong>,
-                  nous utilisons les technologies de la{" "}
-                  <strong>BLOCKCHAIN et des NFTs</strong>.Les NFTs DeFi Lottery{" "}
-                  <strong>NE SONT PAS de simples png,jpeg</strong>,ce sont des{" "}
-                  <strong>tickets d&apos;entré</strong> à une lotterie hebdomadaire ! Après
-                  le tirage,vous pouvez garder <strong>VOS NFTs, VOS tickets</strong>
-                  .Une fois un gagnant tiré de façon <strong>&quot;automatique&quot;</strong>,
-                  et de façon à ce que{" "}
-                  <strong>PERSONNE NE PEUT INFLUENCER LE RESULTAT</strong>, le gagnant
-                  recevr ses gains <strong>AUTOMATIQUEMENT ET DIRECTEMENT</strong>{" "}
-                  dans son wallet !
+                DeFi Lottery é uma loteria <strong>100% Descentralizada</strong>,
+                usamos tecnologias{" "}
+                  <strong>BLOCKCHAIN ​​​​e NFTs</strong>.NFTs DeFi Lottery{" "}
+                  <strong>NÃO SÃO simples png,jpeg</strong>,são{" "}
+                  <strong>bilhetes de entrada</strong> para uma loteria semanal! Após o sorteio, você pode manter <strong>SEUS NFTs, SEUS tíquetes</strong>
+                  .Assim que um vencedor for sorteado <strong>&quot;automaticamente&quot;</strong>,
+                  e de forma que{" "}
+                  <strong>NINGUÉM PODE INFLUENCIAR O RESULTADO</strong>, lo vencedor receberá seus ganhos <strong>AUTOMATICA E DIRETAMENTE</strong>{" "}
+                  em sua carteira !
                 </p>
               </div>
             </div>
@@ -147,25 +145,23 @@ export default function Home() {
           <div id="progress">
             <div className="progress-textcontainer">
               <div className="textTitleRight">
-                <h2>Le déroulement</h2>
+                <h2>O curso</h2>
               </div>
               <div className="textParagrapheRight">
                 <p>
-                  Le tirage au sort se passe chaque vendredi à (heure) UTC+1, Le
-                  gagnant est tiré au sort via un{" "}
+                O sorteio acontece todas as sextas-feiras às (horário) UTC+1, O vencedor é sorteado por meio de um{" "}
                   <strong className="linkText">
-                    <a href="#smartcontract">smart contract</a>
+                    <a href="#smartcontract">contrato inteligente</a>
                   </strong>
-                  . Les NFTs mint durant la semaine deviendront obsolète après le
-                  tirage et une nouvelle collection sera disponible sur la{" "}
+                  . As NFTs de hortelã durante a semana se tornarão obsoletas após o sorteio e uma nova coleção estará disponível no{" "}
                   <strong className="linkText">
                     <a href="#">market place</a>
                   </strong>
-                  . Le gagnant seront nommés sur le site (
+                  . O vencedor será nomeado no site (
                   <strong className="linkText">
-                    <a href="#">ici</a>
+                    <a href="#">aqui</a>
                   </strong>
-                  ) et sur le discord à l&apos;heure du tirage.
+                  ) e no discord no momento do sorteio.
                 </p>
               </div>
             </div>
@@ -182,23 +178,15 @@ export default function Home() {
           <div id="smartcontract">
             <div className="smartcontract-textcontainer">
               <div className="textTitleLeft">
-                <h2>Le Smart Contract</h2>
+                <h2>O contrato inteligente</h2>
               </div>
               <div className="textParagrapheLeft">
                 <p>
-                  La blockchain et le web 3.0 nous offrent la possibilité de garantir
-                  la sécurité d&apos;une loterie fiable et sécurisée grâce à l&apos;utilisation
-                  d&apos;un contrat intelligent (smart contract en anglais) Le contrat
-                  intelligent sera déployé, l&apos;argent des monnaies sera{" "}
-                  <strong>sécurisé</strong> sur le contrat intelligent. Afin de
-                  garantir une transparence totale, le code du contrat intelligent
-                  sera
-                  <strong>accessible à tous</strong> vous pourrez donc déchiffrer ces
-                  lignes de code pour vous assurer que nous ne laissons pas de place
-                  aux arnaques. Le tirage au sort du gagnant se fera également sur le
-                  contrat intelligent avec la fonction de hachage keccack256,{" "}
-                  <strong>que nous ne pouvons pas contrôler/modifier</strong>
-                  Le tirage sera basé sur le <strong>HASHARD TOTAL</strong>
+                O blockchain e a web 3.0 nos oferecem a possibilidade de garantir a segurança de uma loteria confiável e segura através do uso de um contrato inteligente. O contrato inteligente será implantado, o dinheiro das moedas será{" "}
+                  <strong>seguro</strong> sno contrato inteligente. Para garantir total transparência, o código do contrato inteligente será
+                  <strong>acessível a todos</strong> para que você possa decifrar essas linhas de código para garantir que não haja espaço para fraudes. O sorteio para o vencedor também será feito no contrato inteligente com a função de hash keccack256,{" "}
+                  <strong>que não podemos controlar/modificar</strong>
+                  O sorteio será baseado no <strong>TOTAL HASHARD</strong>
                 </p>
               </div>
             </div>
@@ -215,18 +203,14 @@ export default function Home() {
           <div id="mintnft">
             <div className="mintnft-textcontainer">
               <div className="textTitleRight">
-                <h2>Le mint du NFT</h2>
+                <h2>A hortelã do NFT</h2>
               </div>
               <div className="textParagrapheRight">
                 <p>
-                  Le mint de NFT se fera sur <strong>notre site</strong> dans la
-                  section marketplace NFT que vous pouvez retouver juste au-dessus
-                  L&apos;argent des mint sera imméditament stocké sur le smart contract
-                  suite à votre achat,sans intermédiaire,et vos fonds seront{" "}
-                  <strong>sécurisés</strong>
-                  Vous pouvez le voir sur le smart contract,nous ne pouvons que nous
-                  verser nos parts repspectives à l&apos;aide de{" "}
-                  <strong>PaymentSplitter</strong>,ce qui va faciliter nos dû...
+                O NFT Mint será feito em <strong>nosso site</strong> na seção do mercado NFT que você pode encontrar logo acima O dinheiro da moeda será imediatamente armazenado no contrato inteligente após sua compra, sem intermediário, e seus fundos estarão{" "}
+                  <strong>seguros</strong>
+                  Você pode ver isso no contrato inteligente, só podemos pagar um ao outro nossas respectivas ações usando{" "}
+                  <strong>PaymentSplitter</strong>, o que facilitará nossa dívida...
                 </p>
               </div>
             </div>
@@ -250,23 +234,22 @@ export default function Home() {
                   <i className="fa-solid fa-ticket" /> DeFi Lottery
                 </h3>
                 <h4 className="footer-presentation-defi-h4">
-                  DeFi Lottery, lotterie basé sur la technologie blockchain et
-                  sécurisé via l&apos;utiisation d&apos;un smart contract
+                DeFi Lottery, loteria baseada na tecnologia blockchain e protegida pelo uso de um contrato inteligente
                 </h4>
               </div>
             </div>
             <div className="footer-credits">
               <h4>
-                <a href="#about">À propos</a>
+                <a href="#about">Sobre</a>
               </h4>
               <h4>
-                <a href="">Nous Contacter</a>
+                <a href="">Contate-Nos</a>
               </h4>
               <h4>
                 <a href="">Whitepaper</a>
               </h4>
               <h4>
-                <a href="credits.html">Crédits</a>
+                <a href="credits.html">Créditos</a>
               </h4>
               {/* <form action="data.php" method="POST" class="footer-form">
                     <input style="cursor:text" type="email" name="email" class="footer-form-input" placeholder="E-mail">
