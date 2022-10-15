@@ -101,7 +101,7 @@ export default function Mintz() {
   const [loader, setLoader] = useState(true);
   const [balance, setBalance] = useState();
   const [balanceInMatic, setBalanceInMatic] = useState();
-  const addressDL = "0x5E14933f6265a6098f11bf1916300561B84376D1";
+  const addressDL = "0xd29970D07EB26D9B9cA7298b008FdB30bAD3C68B";
 
   const connect = useCallback(async function() {
     // This is the initial `provider` that is returned when
@@ -221,7 +221,7 @@ export default function Mintz() {
         }
     }
 
-    async function mint() {
+    async function enter() {
         if (typeof window.ethereum !== 'undefined') {
             let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -232,7 +232,7 @@ export default function Mintz() {
                     from: accounts[0],
                     value: (data.priceSale * ammount).toString()
                 }
-                const transaction = await contract.saleMint(accounts[0], ammount, overrides);
+                const transaction = await contract.enter(accounts[0], ammount, overrides);
                 await transaction.wait();
                 
             }
@@ -371,7 +371,7 @@ async function getAccounts() {
           >
             A propos
           </a>
-        </li><div class="buttons-container">
+        </li><div className="buttons-container">
         {web3Provider ? (
           
         <button className="walletBTN" onClick={disconnect}>
@@ -465,7 +465,7 @@ async function getAccounts() {
             <div className="btn-marketplace-ul-text-line" />
           </div>
           <div className="btn-marketplace-mint">
-            <button className="btn-mint" onClick={mint} >Acheter</button>
+            <button className="btn-mint" onClick={enter} >Acheter</button>
           </div>
         </ul>
       </div>
