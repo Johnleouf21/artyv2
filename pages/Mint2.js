@@ -6,147 +6,19 @@ import Head from 'next/head';
 import Contract from '../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
 import WalletConnectProvider from "@walletconnect/web3-provider"
 import { providers } from "ethers"
-import { useCallback, useState, useEffect, useReducer } from "react"
+import { useState, useEffect, useReducer } from "react"
 import WalletLink from "walletlink"
-import Web3Modal from "web3modal"
+import Web3Modal, { getChainId } from "web3modal"
 import { ellipseAddress, getChainData } from "../lib/utilities"
+import useEthersProvider from "../hooks/useEthersProvider";
 
 const INFURA_ID = "460f40a260564ac4a4f4b3fffb032dad"
 
-const networks = {
-  polygon: {
-    chainId: `0x${Number(137).toString(16)}`,
-    chainName: "Polygon Mainnet",
-    nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
-      decimals: 18
-    },
-    rpcUrls: ["https://polygon-rpc.com"],
-    blockExplorerUrls: ["https://polygonscan.com/"]
-  },
-  mumbai: {
-    chainId: `0x${Number(80001).toString(16)}`,
-    chainName: "Matic Mumbai Testnet",
-    nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
-      decimals: 18
-    },
-    rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
-    blockExplorerUrls: ["https://mumbai.polygonscan.com/"]
-  },
-}
-
-const changeNetwork = async ({ networkName, setError }) => {
-  try {
-    if (!window.ethereum) throw new Error("No crypto wallet found");
-    await ethereum.request({
-      method: 'wallet_switchEthereumChain',
-      params: [{ chainId: `0x${Number(80001).toString(16)}` }],
-    });
-  } catch (switchError) {
-    // This error code indicates that the chain has not been added to MetaMask.
-    if (switchError.code === 4902) {
-      try {
-        await ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [
-            {
-              ...networks[networkName]
-            }
-          ],
-        });
-      } catch (addError) {
-        setError(err.message);
-      }
-    }
-  }
-}
-
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    options: {
-      infuraId: INFURA_ID // required
-    }
-  },
-  "custom-walletlink": {
-    display: {
-      logo:
-        "https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0",
-      name: "Coinbase",
-      description: "Connect to Coinbase Wallet (not Coinbase App)"
-    },
-    options: {
-      appName: "Coinbase", // Your app name
-      networkUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`,
-      chainId: 1
-    },
-    package: WalletLink,
-    connector: async (_, options) => {
-      const { appName, networkUrl, chainId } = options
-      const walletLink = new WalletLink({
-        appName
-      })
-      const provider = walletLink.makeWeb3Provider(networkUrl, chainId)
-      await provider.enable()
-      return provider
-    }
-  }
-}
-
-let web3Modal
-if (typeof window !== "undefined") {
-  web3Modal = new Web3Modal({
-    network: "mainnet", // optional
-    cacheProvider: false,
-    providerOptions // required
-  })
-}
-
-const initialState = {
-  provider: null,
-  web3Provider: null,
-  address: null,
-  chainId: null
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "SET_WEB3_PROVIDER":
-      return {
-        ...state,
-        provider: action.provider,
-        web3Provider: action.web3Provider,
-        address: action.address,
-        chainId: action.chainId
-      }
-    case "SET_ADDRESS":
-      return {
-        ...state,
-        address: action.address
-      }
-    case "SET_CHAIN_ID":
-      return {
-        ...state,
-        chainId: action.chainId
-      }
-    case "RESET_WEB3_PROVIDER":
-      return initialState
-    default:
-      throw new Error()
-  }
-}
 
 
-/// L'address du contrat
 
-
-export default function Mint() {
-  const [error, setError] = useState();
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const { provider, web3Provider, address, chainId } = state
+export default function Mint2() {
+  const { connect, address, disconnect, provider, chainId } = useEthersProvider();
   const [data, setData] = useState({});
   const [accounts, setAccounts] = useState([]);
   const [ammount, setAmmount] = useState(1);
@@ -154,115 +26,9 @@ export default function Mint() {
   const [balance, setBalance] = useState();
   const [balanceInMatic, setBalanceInMatic] = useState();
   const addressDL = "0xd29970D07EB26D9B9cA7298b008FdB30bAD3C68B";
-
-  const handleNetworkSwitch = async (networkName) => {
-    setError();
-    await changeNetwork({ networkName, setError });
-  };
-
-  const networkChanged = (chainId) => {
-    console.log({ chainId });
-  };
-
-  useEffect(() => {
-    window.ethereum.on("chainChanged", networkChanged);
-
-    return () => {
-      window.ethereum.removeListener("chainChanged", networkChanged);
-    };
-  }, []);
-
-  const connect = useCallback(async function() {
-    // This is the initial `provider` that is returned when
-    // using web3Modal to connect. Can be MetaMask or WalletConnect.
-    const provider = await web3Modal.connect()
-
-    // We plug the initial `provider` into ethers.js and get back
-    // a Web3Provider. This will add on methods from ethers.js and
-    // event listeners such as `.on()` will be different.
-    const web3Provider = new providers.Web3Provider(provider)
-
-    const signer = web3Provider.getSigner()
-    const address = await signer.getAddress()
-    console.log("SET ADDRESS FROM CONNECT", address)
-    const network = await web3Provider.getNetwork()
-
-    dispatch({
-      type: "SET_WEB3_PROVIDER",
-      provider,
-      web3Provider,
-      address,
-      chainId: network.chainId
-    })
-  }, [])
-
-  const disconnect = useCallback(
-    async function() {
-      await web3Modal.clearCachedProvider()
-      if (provider?.disconnect && typeof provider.disconnect === "function") {
-        await provider.disconnect()
-      }
-      dispatch({
-        type: "RESET_WEB3_PROVIDER"
-      })
-    },
-    [provider]
-  )
-
-  // Auto connect to the cached provider
-  useEffect(() => {
-    console.log("web3Modal.cachedProvider", web3Modal.cachedProvider)
-    if (web3Modal.cachedProvider) {
-      connect()
-    }
-  }, [connect])
-
-  // A `provider` should come with EIP-1193 events. We'll listen for those events
-  // here so that when a user switches accounts or networks, we can update the
-  // local React state with that new information.
-  useEffect(() => {
-    if (provider?.on) {
-      const handleAccountsChanged = accounts => {
-        // eslint-disable-next-line no-console
-        console.log("accountsChanged from event", accounts)
-        dispatch({
-          type: "SET_ADDRESS",
-          address: accounts[0]
-        })
-      }
-
-      // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
-      const handleChainChanged = _hexChainId => {
-        window.location.reload()
-      }
-
-      const handleDisconnect = error => {
-        // eslint-disable-next-line no-console
-        console.log("disconnect", error)
-        disconnect()
-      }
-
-      provider.on("accountsChanged", handleAccountsChanged)
-      provider.on("chainChanged", handleChainChanged)
-      provider.on("disconnect", handleDisconnect)
-
-      // Subscription Cleanup
-      return () => {
-        if (provider.removeListener) {
-          provider.removeListener("accountsChanged", handleAccountsChanged)
-          provider.removeListener("chainChanged", handleChainChanged)
-          provider.removeListener("disconnect", handleDisconnect)
-        }
-      }
-    }
-  }, [provider, disconnect])
-
   const chainData = getChainData(chainId)
 
-    
-
-
-
+  
 
     useEffect(() => {
        getAccounts();
@@ -317,12 +83,6 @@ export default function Mint() {
     }
     const decrementAmmount = () => {
         ammount - 1 >= 1 && setAmmount(ammount - 1)
-    }
-
-    async function connecter() {
-      await handleNetworkSwitch("mumbai");
-      await connect()
-
     }
 
 
@@ -447,17 +207,26 @@ async function getAccounts() {
             A propos
           </a>
         </li><div className="buttons-container">
-        {web3Provider ? (
+        {provider ? (
           
         <button className="walletBTN" onClick={disconnect}>
         {ellipseAddress(address)}</button>
         ) : (
-          <button className="walletBTN2" onClick={connecter}>
+          <button className="walletBTN2" onClick={connect}>
           Connect
         </button>
       )}</div>
       
-       
+        {address && (
+          <div hidden className="grid">
+            <div>
+              <p className="mb-1">Network : {getChainData?.name}</p>
+            </div>
+            <div>
+              <p className="mb-1">Balance : {balanceInMatic} {getChainData?.chain}</p>
+            </div>
+          </div>
+        )}
         
         <h6>
           <span id="showAccount" />
@@ -491,7 +260,7 @@ async function getAccounts() {
             <div className="btn-marketplace-ul-text-container">
               <h3>Solde</h3>
               <div className="btn-marketplace-ul-text-void" />
-              {address && (<p>{balanceInMatic} {chainData?.chain}</p>)}
+              {address && (<p>{balanceInMatic} {chainData?.symbol}</p>)}
             </div>
             <div className="btn-marketplace-ul-text-line" />
           </div>
@@ -531,9 +300,7 @@ async function getAccounts() {
             <div className="btn-marketplace-ul-text-line" />
           </div>
           <div className="btn-marketplace-mint">
-            
             <button className="btn-mint" onClick={enter} >Acheter</button>
-            
           </div>
         </ul>
       </div>
