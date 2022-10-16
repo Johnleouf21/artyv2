@@ -1,32 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Head from 'next/head';
-import { GB, FR, BR } from 'country-flag-icons/react/3x2'
+import { FR, GB, BR } from 'country-flag-icons/react/3x2'
+import Link from 'next/link'
 
 
-
-
-
-
-
-export default function Nav() {
-
-
-
-  
-
-    ///<━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━App━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━>
-
-
-    return (
-        <div>
-            <Head>
-        <title>lottery</title>
-        <meta property="og:image:url" content="/favicon.jpg"></meta>
-        <meta name="description" content="The red paws club project, A true passive income NFT, The easy way of earning money" />
-        <link rel="icon" href="/favicon.ico" />
-            </Head>
-            
+export default function HeaderGB() {
+    return(
         <header>
           <nav>
             <ul>
@@ -38,43 +15,26 @@ export default function Nav() {
               <div className="action">
                 <div className="profile" >
                   <li className="reglage">
-                    <a className="Réglages du site" href="ENindex.html">
-                      <FR width={23}/><i className="fa-solid fa-circle-check" />
+                    <Link href="/">
+                    <a className="Réglages du site">
+                      <FR width={23}/>
+                    </a>
+                    </Link>
+                  </li>
+                  <li className="reglage">
+                    <a className="Réglages du site">
+                      <GB width={23}/><i className="fa-solid fa-circle-check" />
                     </a>
                   </li>
                   <li className="reglage">
-                    <a className="Réglages du site" href="ENindex.html">
-                      <GB width={23}/>
-                    </a>
-                  </li>
-                  <li className="reglage">
-                    <a className="Réglages du site" href="ENindex.html">
+                    <Link href="/HomeBR">
+                    <a className="Réglages du site">
                       <BR width={23}/>
                     </a>
+                    </Link>
                   </li>
                 </div>
-                <div className="menu">
-                  <ul>
-                    <div className="action2">
-                      <div className="profile2" >
-                        <li>
-                          <i className="fa-solid fa-globe" /> Langue{" "}
-                          <i className="fa-solid fa-caret-right" />
-                        </li>
-                        <div className="menulang">
-                         
-                        </div>
-                      </div>
-                    </div>
-                    <div className="actionclose" >
-                      <ul>
-                        <li>
-                          <i className="fa-solid fa-xmark" /> Fermer
-                        </li>
-                      </ul>
-                    </div>
-                  </ul>
-                </div></div>
+                </div>
               <div className="iconsnavbartwitter">
                 <a
                   className="logotwitter"
@@ -100,7 +60,7 @@ export default function Nav() {
               </li>
               <li id="apropos">
                 <a href="#about" title="Pour mieux comprendre notre projet">
-                  a propos
+                  About
                 </a>
               </li>
               <li className="nav-roadmap">
@@ -117,9 +77,9 @@ export default function Nav() {
             <div className="mainPage-text">
               <h1>DeFi Lottery</h1>
               <div id="premierTrait" />
-              <h3>100% Décentralisée, 100% Sécurisé</h3>
+              <h3>100% Decentralized, 100% Secured</h3>
               <h3>
-                Loterie géré par <strong>vous</strong>
+              Lottery manage by <strong>YOU</strong>
               </h3>
             </div>
             {/* <div class="mainPage-btn">
@@ -130,7 +90,5 @@ export default function Nav() {
             </div> */}
           </div>
         </header>
-
-        </div >
     )
 }
