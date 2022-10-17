@@ -3,11 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ethers } from 'ethers';
 import Contract from '../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
-
 import { useState, useEffect } from "react"
-
-
-
 
 export default function Admin() {
 
@@ -33,8 +29,8 @@ export default function Admin() {
                 const priceSale = await contract.priceSale();
                 const totalSupply = await contract.totalSupply();
                 const MAX_SUPPLY = await contract.MAX_SUPPLY();
-                const idLottery = await contract.idLottery();
-                const object = {"idLottery": String(idLottery), "priceSale": String(priceSale), "totalSupply": String(totalSupply), "MAX_SUPPLY": String(MAX_SUPPLY) }
+                const getBalance = await contract.getBalance();
+                const object = {"getBalance": String(getBalance), "priceSale": String(priceSale), "totalSupply": String(totalSupply), "MAX_SUPPLY": String(MAX_SUPPLY) }
                 setData(object);
             }
             catch (err) {
@@ -130,11 +126,47 @@ export default function Admin() {
 
     return(
         <div>
-            <span>idLottery{data.idLottery}</span>
-            <span>winner{getWinner}</span>
-        <button id='btnmarketplace' onClick={toggleLottery}>ouvrir/fermer la lotterie</button>
-        <button id='btnmarketplace' onClick={requestRandomWords}>tirage du nombre aléatoire</button>
-        <button id='btnmarketplace' onClick={pickWinner}>tirage/recompenses du gagnant</button>
+            <div className="btn-marketplace">
+                    <ul className="btn-marketplace-ul">
+                        <div className="btn-marketplace-ul-text-mint">
+                            <h2>Administration</h2>
+                            <p className="btn-marketplace-ul-presentationtext-h1-supply">
+                            {data.totalSupply} tickets vendus
+                            </p>
+                        </div>
+                        <div className="btn-marketplace-ul-text-amount">
+                            <div className="btn-marketplace-ul-text-container">
+                            <div className="btn-marketplace-ul-text-container-box"> 
+                                <button id='btnmarketplace' onClick={toggleLottery}>loterie on/off</button>
+                            </div>
+                            </div>
+                            <div className="btn-marketplace-ul-text-line" />
+                        </div>
+                        <div className="btn-marketplace-ul-text-amount">
+                            <div className="btn-marketplace-ul-text-container">
+                            <div className="btn-marketplace-ul-text-container-box"> 
+                                <button id='btnmarketplace' onClick={requestRandomWords}>tirage du nombre aléatoire</button>
+                            </div>
+                            </div>
+                            <div className="btn-marketplace-ul-text-line" />
+                        </div>
+                        <div className="btn-marketplace-ul-text-amount">
+                            <div className="btn-marketplace-ul-text-container">
+                            <div className="btn-marketplace-ul-text-container-box"> 
+                                <button id='btnmarketplace' onClick={pickWinner}>tirage/recompenses du gagnant</button>
+                            </div>
+                            </div>
+                            <div className="btn-marketplace-ul-text-line" />
+                        </div>
+                        <div className="btn-marketplace-ul-text-total">
+                            <div className="btn-marketplace-ul-text-container">
+                            <h3>Cashprize Team</h3>
+                            <div className="btn-marketplace-ul-text-container-box" />
+                            <p>{data.getBalance/10**18 * 0.2} MATIC</p>
+                            </div>
+                        </div>
+                    </ul>
+            </div>       
         </div>
     )
 }
