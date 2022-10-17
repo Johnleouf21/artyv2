@@ -145,7 +145,7 @@ export default function MintFR() {
     const [ammount, setAmmount] = useState(1);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
-    const addressDL = "0xd29970D07EB26D9B9cA7298b008FdB30bAD3C68B";
+    const addressDL = "0x10EB18c3C5fE403951c2Ec1F1c1f1Fe9ffA7A6e4";
     const [error, setError] = useState();
 
     const handleChange = event => {
@@ -310,7 +310,7 @@ export default function MintFR() {
   
   
       const incrementAmmount = () => {
-          ammount + 1 <= 5 && setAmmount(ammount + 1);
+          ammount + 1 <= 50 && setAmmount(ammount + 1);
       }
       const decrementAmmount = () => {
           ammount - 1 >= 1 && setAmmount(ammount - 1)
@@ -400,7 +400,7 @@ export default function MintFR() {
                       <div className="btn-marketplace-ul-text-mint">
                         <h2>Mint Ticket</h2>
                         <p className="btn-marketplace-ul-presentationtext-h1-supply">
-                        {data.MAX_SUPPLY - data.totalSupply} tickets NFT&apos;s restants
+                        {data.MAX_SUPPLY - data.totalSupply - 499900} tickets NFT&apos;s restants
                         </p>
                       </div>
                       <div className="btn-marketplace-ul-text-balance">
@@ -415,7 +415,7 @@ export default function MintFR() {
                         <div className="btn-marketplace-ul-text-container">
                           <div className="btn-marketplace-ul-text-container-box"> 
                             <h3>Montant</h3>
-                            <p>(max 5)</p>
+                            <p>(max 50)</p>
                           </div>
                           <div id="btn-markeplace-ul-quantity-container">
                             <div className="btn-markeplace-ul-quantity">
@@ -428,6 +428,7 @@ export default function MintFR() {
                                   className="btn-marketplace-ul-li-input"
                                   onChange={handleChange}
                                   min={1}
+                                  max={50}
                                   placeholder={ammount}
                                 />
                               </form>
@@ -443,7 +444,7 @@ export default function MintFR() {
                         <div className="btn-marketplace-ul-text-container">
                           <h3>Total</h3>
                           <div className="btn-marketplace-ul-text-void" />
-                          <p>{data.priceSale/10**18 * ammount} MATIC</p>
+                          <p>{(data.priceSale/10**18 * ammount).toFixed(2)} MATIC</p>
                         </div>
                         <div className="btn-marketplace-ul-text-line" />
                       </div>
