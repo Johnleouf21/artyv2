@@ -277,7 +277,8 @@ export default function MintFR() {
                   const priceSale = await contract.priceSale();
                   const totalSupply = await contract.totalSupply();
                   const MAX_SUPPLY = await contract.MAX_SUPPLY();
-                  const object = {"priceSale": String(priceSale), "totalSupply": String(totalSupply), "MAX_SUPPLY": String(MAX_SUPPLY) }
+                  const getBalance = await contract.getBalance();
+                  const object = {"getBalance": String(getBalance), "priceSale": String(priceSale), "totalSupply": String(totalSupply), "MAX_SUPPLY": String(MAX_SUPPLY) }
                   setData(object);
               }
               catch (err) {
@@ -448,6 +449,13 @@ export default function MintFR() {
                       </div>
                       <div className="btn-marketplace-mint">
                         <button className="btn-mint" onClick={enter} >Acheter</button> 
+                      </div>
+                      <div className="btn-marketplace-ul-text-total">
+                        <div className="btn-marketplace-ul-text-container">
+                          <h3>Cashprize</h3>
+                          <div className="btn-marketplace-ul-text-void" />
+                          <p>{data.getBalance/10**18 * 0.8} MATIC</p>
+                        </div>
                       </div>
                     </ul>
                   </div>
