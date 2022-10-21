@@ -47,7 +47,7 @@ export default function Footer() {
         <span title="Jeunes Entrepreneurs">© 2022, All Rights Reserved</span>
       </div>
       <div id="icons">
-        <a href="https://twitter.com/?lang=fr" title="Accédez à notre twitter">
+        <a href="https://twitter.com/DeFi_Lottery" title="Accédez à notre twitter">
           <i className="fa-brands fa-twitter" />
         </a>
         <a
@@ -57,7 +57,7 @@ export default function Footer() {
           <i className="fa-brands fa-youtube" />
         </a>
         <a
-          href="https://discord.gg/mXb4Aq5Bz2"
+          href="https://discord.gg/pYHEtRy76K"
           title="Accédez à notre discord communautaire officiel"
         >
           <i className="fa-brands fa-discord" />

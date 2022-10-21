@@ -38,7 +38,7 @@ export default function Header() {
                 <div className="iconsnavbartwitter">
                     <a
                     className="logotwitter"
-                    href="https://twitter.com/?lang=fr"
+                    href="https://twitter.com/DeFi_Lottery"
                     title="Accédez à notre twitter"
                     >
                     <i className="fa-brands fa-twitter" />
@@ -47,7 +47,7 @@ export default function Header() {
                 <div className="iconsnavbardiscord">
                     <a
                     className="logodiscord"
-                    href="https://discord.gg/GqsyHETQM2"
+                    href="https://discord.gg/pYHEtRy76K"
                     title="Accédez à notre discord communautaire officiel"
                     >
                     <i className="fa-brands fa-discord" />

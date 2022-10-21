@@ -54,7 +54,7 @@ export default function FooterBR() {
                 <i className="fa-brands fa-youtube" />
               </a>
               <a
-                href="https://discord.gg/GqsyHETQM2"
+                href="https://discord.gg/pYHEtRy76K"
                 title="Accédez à notre discord communautaire officiel"
               >
                 <i className="fa-brands fa-discord" />
