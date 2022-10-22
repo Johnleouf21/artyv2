@@ -11,9 +11,16 @@ export default function Admin() {
     const [accounts, setAccounts] = useState([]);
     const [ammount, setAmmount] = useState(0);
     const [amount, setAmount] = useState(0);
+    const [price, setPrice] = useState(0);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
     const addressDL = "0x0dc8b426F12156e7f37C3e41d24BA61CBF0A2377";
+
+    const handleChange = event => {
+        setPrice(event.target.value);
+  
+        console.log('value is:', event.target.value)
+    }
 
 
     useEffect(() => {
@@ -145,6 +152,24 @@ export default function Admin() {
         }
     }
 
+    async function changePriceSale() {
+        if (typeof window.ethereum !== 'undefined') {
+            let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(addressDL, Contract.abi, signer);
+            try {
+                
+                const transaction = await contract.changePriceSale(price);
+                await transaction.wait();
+                
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    }
+
     async function changeSupplyLottery() {
         if (typeof window.ethereum !== 'undefined') {
             let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -225,6 +250,18 @@ export default function Admin() {
                             <button id='btnmarketplace' onClick={incrementAmount}>+</button>{amount}<button id='btnmarketplace' onClick={decrementAmount}>-</button>
                             </p>
                             <button id='btnmarketplace' onClick={changeSupplyLottery}>Nouveau nombre de tickets</button>
+                            <div className="btn-marketplace-ul-text-line" />
+                        </div>
+                        <div className="btn-marketplace-ul-text-mint">
+                            <h2>change price for</h2><button id='btnmarketplace' onClick={changePriceSale}>CHANGE</button>
+                                <input
+                                  list="number-ticket"
+                                  className="btn-marketplace-ul-li-input"
+                                  onChange={handleChange}
+                                  min={1}
+                                  max={50}
+                                  placeholder={price}
+                                />
                         </div>
                     </ul>
             </div>       

@@ -152,7 +152,7 @@ export default function MintFR() {
       setAmmount(event.target.value);
 
       console.log('value is:', event.target.value)
-  }
+    }
 
 
     const handleNetworkSwitch = async (networkName) => {
