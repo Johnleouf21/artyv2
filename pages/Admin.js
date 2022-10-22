@@ -10,9 +10,10 @@ export default function Admin() {
     const [data2, setData2] = useState({});
     const [accounts, setAccounts] = useState([]);
     const [ammount, setAmmount] = useState(0);
+    const [amount, setAmount] = useState(0);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
-    const addressDL = "0x10EB18c3C5fE403951c2Ec1F1c1f1Fe9ffA7A6e4";
+    const addressDL = "0x0dc8b426F12156e7f37C3e41d24BA61CBF0A2377";
 
 
     useEffect(() => {
@@ -28,7 +29,6 @@ export default function Admin() {
             try {
                 
                 const totalSupply = await contract.totalSupply();
-                const MAX_SUPPLY = await contract.MAX_SUPPLY();
                 const getBalance = await contract.getBalance();
                 const lotteryClosed = await contract.lotteryClosed();
                 const idLottery = await contract.idLottery();
@@ -36,8 +36,7 @@ export default function Admin() {
                     "idLottery": String(idLottery),
                     "lotteryClosed": String(lotteryClosed), 
                     "getBalance": String(getBalance),  
-                    "totalSupply": String(totalSupply), 
-                    "MAX_SUPPLY": String(MAX_SUPPLY) 
+                    "totalSupply": String(totalSupply),
                 }
                 setData(object);
             }
@@ -53,6 +52,13 @@ export default function Admin() {
     }
     const decrementAmmount = () => {
         ammount - 1 >= 0 && setAmmount(ammount - 1)
+    }
+
+    const incrementAmount = () => {
+        amount + 1 <= 50 && setAmount(amount + 10);
+    }
+    const decrementAmount = () => {
+        amount - 1 >= 1 && setAmount(amount - 10)
     }
     
     async function getWinner() {
@@ -139,6 +145,24 @@ export default function Admin() {
         }
     }
 
+    async function changeSupplyLottery() {
+        if (typeof window.ethereum !== 'undefined') {
+            let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(addressDL, Contract.abi, signer);
+            try {
+                
+                const transaction = await contract.changeSupplyLottery(amount);
+                await transaction.wait();
+                
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    }
+
     return(
         <div>
             <div className="btn-marketplace">
@@ -187,14 +211,20 @@ export default function Admin() {
                         </div>
                         <div className="btn-marketplace-ul-text-mint">
                             <h2>address winners</h2>
-                            
-                            
                             <p className="btn-marketplace-ul-presentationtext-h1-supply">
                             loterie number : <button id='btnmarketplace' onClick={decrementAmmount}>+</button>{data.idLottery - ammount}<button id='btnmarketplace' onClick={incrementAmmount}>-</button>
                             </p>
                             <p className="btn-marketplace-ul-presentationtext-h1-supply">
                             address : {data2.getWinner}
                             </p><button id='btnmarketplace' onClick={getWinner}>Get address</button>
+                            <div className="btn-marketplace-ul-text-line" />
+                        </div>
+                        <div className="btn-marketplace-ul-text-mint">
+                            <h2>tickets par loterie</h2>
+                            <p className="btn-marketplace-ul-presentationtext-h1-supply">
+                            <button id='btnmarketplace' onClick={incrementAmount}>+</button>{amount}<button id='btnmarketplace' onClick={decrementAmount}>-</button>
+                            </p>
+                            <button id='btnmarketplace' onClick={changeSupplyLottery}>Nouveau nombre de tickets</button>
                         </div>
                     </ul>
             </div>       

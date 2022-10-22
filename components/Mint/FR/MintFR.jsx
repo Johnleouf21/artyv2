@@ -145,7 +145,7 @@ export default function MintFR() {
     const [ammount, setAmmount] = useState(1);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
-    const addressDL = "0x10EB18c3C5fE403951c2Ec1F1c1f1Fe9ffA7A6e4";
+    const addressDL = "0x0dc8b426F12156e7f37C3e41d24BA61CBF0A2377";
     const [error, setError] = useState();
 
     const handleChange = event => {
@@ -276,9 +276,18 @@ export default function MintFR() {
                   
                   const priceSale = await contract.priceSale();
                   const totalSupply = await contract.totalSupply();
-                  const MAX_SUPPLY = await contract.MAX_SUPPLY();
+                  const supplyLottery = await contract.supplyLottery();
                   const getBalance = await contract.getBalance();
-                  const object = {"getBalance": String(getBalance), "priceSale": String(priceSale), "totalSupply": String(totalSupply), "MAX_SUPPLY": String(MAX_SUPPLY) }
+                  const idLottery = await contract.idLottery();
+                  const alreadySupply = await contract.alreadySupply();
+                  const object = {
+                    "getBalance": String(getBalance), 
+                    "idLottery": String(idLottery),
+                    "priceSale": String(priceSale), 
+                    "totalSupply": String(totalSupply), 
+                    "alreadySupply": String(alreadySupply),
+                    "supplyLottery": String(supplyLottery)
+                  }
                   setData(object);
               }
               catch (err) {
@@ -400,7 +409,7 @@ export default function MintFR() {
                       <div className="btn-marketplace-ul-text-mint">
                         <h2>Mint Ticket</h2>
                         <p className="btn-marketplace-ul-presentationtext-h1-supply">
-                        {data.MAX_SUPPLY - data.totalSupply - 499900} tickets NFT&apos;s restants
+                        {(data.supplyLottery -(-data.alreadySupply)) - data.totalSupply} tickets NFT&apos;s restants
                         </p>
                       </div>
                       <div className="btn-marketplace-ul-text-balance">
