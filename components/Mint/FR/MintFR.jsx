@@ -280,12 +280,14 @@ export default function MintFR() {
                   const getBalance = await contract.getBalance();
                   const idLottery = await contract.idLottery();
                   const alreadySupply = await contract.alreadySupply();
+                  const lotteryClosed = await contract.lotteryClosed();
                   const object = {
                     "getBalance": String(getBalance), 
                     "idLottery": String(idLottery),
                     "priceSale": String(priceSale), 
                     "totalSupply": String(totalSupply), 
                     "alreadySupply": String(alreadySupply),
+                    "lotteryClosed": String(lotteryClosed),
                     "supplyLottery": String(supplyLottery)
                   }
                   setData(object);
@@ -410,6 +412,12 @@ export default function MintFR() {
                         <h2>Mint Ticket</h2>
                         <p className="btn-marketplace-ul-presentationtext-h1-supply">
                         {(data.supplyLottery -(-data.alreadySupply)) - data.totalSupply} tickets NFT&apos;s restants
+                        </p>
+                        <p className="btn-marketplace-ul-presentationtext-h1-supply">
+                        Loterie numero : {data.idLottery}
+                        </p>
+                        <p className="btn-marketplace-ul-presentationtext-h1-supply">
+                        Statut (true = ferme, false = ouverte) : {data.lotteryClosed}
                         </p>
                       </div>
                       <div className="btn-marketplace-ul-text-balance">
