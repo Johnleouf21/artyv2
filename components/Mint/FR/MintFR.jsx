@@ -472,7 +472,7 @@ export default function MintFR() {
                         <div className="btn-marketplace-ul-text-container">
                           <h3>Cashprize</h3>
                           <div className="btn-marketplace-ul-text-void" />
-                          <p>{data.getBalance/10**18 * 0.8} MATIC</p>
+                          <p>{(data.getBalance/10**18 * 0.8).toFixed(2)} MATIC</p>
                         </div>
                       </div>
                     </ul>

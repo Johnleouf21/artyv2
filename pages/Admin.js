@@ -230,7 +230,7 @@ export default function Admin() {
                             <div className="btn-marketplace-ul-text-container">
                             <h3>Cashprize Team</h3>
                             <div className="btn-marketplace-ul-text-container-box" />
-                            <p>{data.getBalance/10**18 * 0.2} MATIC</p>
+                            <p>{(data.getBalance/10**18 * 0.2).toFixed(2)} MATIC</p>
                             </div>
                             <div className="btn-marketplace-ul-text-line" />
                         </div>
