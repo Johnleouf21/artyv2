@@ -145,7 +145,7 @@ export default function MintFR() {
     const [ammount, setAmmount] = useState(1);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
-    const addressDL = "0xEc4b537E92A156e47cf75E9E9811ce24fec5D3aC";
+    const addressDL = "0xb08D0552A23Dae5AD2f356147F758629DA0c1a16";
     const [error, setError] = useState();
 
     const handleChange = event => {
