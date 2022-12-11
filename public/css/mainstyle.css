@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@500&display=swap");
 @font-face {
 	font-family: 'Quantum';
-	src: local('Quantum') format(otf);
+	src: "font/Quantum.otf";
     font-weight: bold;
 }
 
