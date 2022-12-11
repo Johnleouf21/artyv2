@@ -1,4 +1,3 @@
-import Head from 'next/image';
 import { ethers } from 'ethers';
 import Contract from '../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
 import { useState, useEffect } from "react"
@@ -14,7 +13,7 @@ export default function Admin() {
     const [price, setPrice] = useState(0);
     const [loader, setLoader] = useState(true);
     const [balanceInMatic, setBalanceInMatic] = useState();
-    const addressDL = "0xEc4b537E92A156e47cf75E9E9811ce24fec5D3aC";
+    const addressDL = "0x5D927D8d12c2B609860132a259299D1f50c54B96";
 
     const handleChange = event => {
         setPrice(event.target.value);
@@ -205,7 +204,7 @@ export default function Admin() {
                         <div className="btn-marketplace-ul-text-amount">
                             <div className="btn-marketplace-ul-text-container">
                             <div className="btn-marketplace-ul-text-container-box"> 
-                                <button id='btnmarketplace' onClick={toggleLottery}>loterie on/off</button>loterie ferme : {data.lotteryClosed}
+                                <button className="walletBTN3" onClick={toggleLottery}>loterie on/off</button>loterie ferme : {data.lotteryClosed}
                             </div>
                             </div>
                             <div className="btn-marketplace-ul-text-line" />
@@ -213,7 +212,7 @@ export default function Admin() {
                         <div className="btn-marketplace-ul-text-amount">
                             <div className="btn-marketplace-ul-text-container">
                             <div className="btn-marketplace-ul-text-container-box"> 
-                                <button id='btnmarketplace' onClick={requestRandomWords}>tirage du nombre aléatoire</button>
+                                <button className="walletBTN3" onClick={requestRandomWords}>tirage du nombre aléatoire</button>
                             </div>
                             </div>
                             <div className="btn-marketplace-ul-text-line" />
@@ -221,7 +220,7 @@ export default function Admin() {
                         <div className="btn-marketplace-ul-text-amount">
                             <div className="btn-marketplace-ul-text-container">
                             <div className="btn-marketplace-ul-text-container-box"> 
-                                <button id='btnmarketplace' onClick={pickWinner}>tirage/recompenses du gagnant</button>
+                                <button className="walletBTN3" onClick={pickWinner}>tirage/recompenses du gagnant</button>
                             </div>
                             </div>
                             <div className="btn-marketplace-ul-text-line" />
@@ -241,7 +240,7 @@ export default function Admin() {
                             </p>
                             <p className="btn-marketplace-ul-presentationtext-h1-supply">
                             address : {data2.getWinner}
-                            </p><button id='btnmarketplace' onClick={getWinner}>Get address</button>
+                            </p><button className="walletBTN3" onClick={getWinner}>Get address</button>
                             <div className="btn-marketplace-ul-text-line" />
                         </div>
                         <div className="btn-marketplace-ul-text-mint">
@@ -249,11 +248,12 @@ export default function Admin() {
                             <p className="btn-marketplace-ul-presentationtext-h1-supply">
                             <button id='btnmarketplace' onClick={incrementAmount}>+</button>{amount}<button id='btnmarketplace' onClick={decrementAmount}>-</button>
                             </p>
-                            <button id='btnmarketplace' onClick={changeSupplyLottery}>Nouveau nombre de tickets</button>
+                            <button className="walletBTN3" onClick={changeSupplyLottery}>Nouveau nombre de tickets</button>
                             <div className="btn-marketplace-ul-text-line" />
                         </div>
                         <div className="btn-marketplace-ul-text-mint">
-                            <h2>change price for</h2><button id='btnmarketplace' onClick={changePriceSale}>CHANGE</button>
+                            <h2>change price for</h2>
+                            <button className="walletBTN3" onClick={changePriceSale}>CHANGE</button>
                                 <input
                                   list="number-ticket"
                                   className="btn-marketplace-ul-li-input"

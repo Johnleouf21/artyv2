@@ -137,7 +137,7 @@ const providerOptions = {
     }
   }
 
-export default function MintFR() {
+export default function MintBR() {
     const [state, dispatch] = useReducer(reducer, initialState)
     const { provider, address, chainId } = state
     const [data, setData] = useState({});
@@ -353,7 +353,7 @@ export default function MintFR() {
                     <div className="sectionnavbar">
                       <div className="divlogo">
                         <li id="logo">
-                          <Link href="/">
+                          <Link href="/HomeBR">
                           <a>
                             <i className="fa-solid fa-ticket" /> DeFi Lottery
                           </a>
