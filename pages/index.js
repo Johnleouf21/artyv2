@@ -17,6 +17,7 @@ export default function Home() {
           New rules, far from governments.
           Lottery manage by you." />
         <link rel="icon" href="image/logo-onglet.jpg"/>
+        <link rel="favicon" href="image/logo-onglet.jpg"/>
       </Head>
         <Header/>
         <SectionPresentation/>
