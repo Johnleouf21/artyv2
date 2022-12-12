@@ -16,7 +16,7 @@ export default function Home() {
         <meta name="description" content="New ecosystem,
           New rules, far from governments.
           Lottery manage by you." />
-        <meta property="og:image:url" content="/image/logo-onglet.jpg"></meta>
+        <meta property="og:image:url" content="image/logo-onglet.jpg"></meta>
         <link rel="icon" href="image/logo-onglet.jpg"/>
         <link rel="favicon" href="image/logo-onglet.jpg"/>
       </Head>
