@@ -3,6 +3,7 @@ import Contract from '../../../artifacts/contracts/DefiLotteryV2.sol/DefiLottery
 import { useState, useEffect } from "react"
 import { ellipseAddress } from "../../../lib/utilities"
 
+
 export default function SectionPresentation() {
 
   const [data, setData] = useState({});
@@ -49,6 +50,33 @@ export default function SectionPresentation() {
     }
   }
 
+  var countDownDate = new Date("Dec 23, 2022 22:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
 
     return(
       <>
@@ -220,8 +248,7 @@ export default function SectionPresentation() {
               <h3>Time remaining before next draw</h3>
             </div>
             <div className="count-container-text-arg">
-              <h2>1 day</h2>
-              <h2>15 hours</h2>
+              <h2 id='demo'></h2>
               <div className="count-container-loader">
                 <div className="count-container-loader-bar" />
               </div>
