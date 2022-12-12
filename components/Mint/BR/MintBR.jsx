@@ -459,7 +459,7 @@ export default function MintBR() {
                             </div>
                             <div className="mint-section-btn">
                               <div className="mint-btn-container">
-                                <button className="btn-mint">Mint</button>
+                                <button className="btn-mint" onClick={enter}>Mint</button>
                                 <div className="mint-btn-section">
                                   <h4>Solde : {address && (<p>{balanceInMatic} {chainData?.chain}</p>)}</h4>
                                 </div>
