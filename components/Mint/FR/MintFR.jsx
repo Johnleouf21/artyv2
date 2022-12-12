@@ -365,6 +365,7 @@ export default function MintFR() {
                             <div className="iconsnavbartwitter">
                               <a
                                 className="logotwitter"
+                                target="_blank"
                                 href="https://twitter.com/DeFi_Lottery"
                                 title="Accédez à notre twitter">
                                 <i className="fa-brands fa-twitter" />
@@ -372,6 +373,7 @@ export default function MintFR() {
                             </div>
                             <div className="iconsnavbardiscord">
                               <a
+                                target="_blank"
                                 className="logodiscord"
                                 href="https://discord.gg/pYHEtRy76K"
                                 title="Accédez à notre discord communautaire officiel">
@@ -380,12 +382,12 @@ export default function MintFR() {
                             </div>
                           </div>
                             <li id="whitepaper">
-                              <a href="#" title="Accédez au White Paper">
+                              <a href="https://decentralized-lottery.gitbook.io/defi-lottery/" title="Accédez au White Paper" target="_blank">
                                 White Paper
                               </a>
                             </li>
                             <li id="apropos">
-                              <a href="/test#splitchange" title="Pour mieux comprendre notre projet">
+                              <a href="/#splitchange" title="Pour mieux comprendre notre projet">
                                 A propos
                               </a>
                             </li><div className="buttons-container">

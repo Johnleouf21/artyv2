@@ -321,6 +321,7 @@ header li a:hover {
     font-weight: 100;
     letter-spacing:2px ;
     height: 65px;
+    cursor: pointer;
     width: 100%;
     font-size: 1.3em;
     background-color:rgb(157, 255, 157);

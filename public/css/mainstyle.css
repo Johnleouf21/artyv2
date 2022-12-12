@@ -80,6 +80,7 @@ nav {
 .btnmarketplace a {
     color: rgb(0, 0, 0);
     font-family: 'Koulen', cursive;
+    
 }
 
 .btnmarketplace:hover {
@@ -178,6 +179,7 @@ header li a:hover {
     text-decoration: none;
     font-size: 1.2em;
     margin: auto;
+    cursor: pointer;
     width: auto;
     height: auto;
     overflow: hidden;
@@ -192,6 +194,7 @@ header li a:hover {
     text-decoration: none;
     font-size: 1.2em;
     margin: auto;
+    cursor: pointer;
     width: 200px;
     height: 42px;
     overflow: hidden;
@@ -206,6 +209,7 @@ header li a:hover {
     text-decoration: none;
     font-size: 1.2em;
     margin: auto;
+    cursor: pointer;
     width: 200px;
     height: 42px;
     overflow: hidden;

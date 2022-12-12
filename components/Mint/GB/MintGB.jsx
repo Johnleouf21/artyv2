@@ -366,6 +366,7 @@ export default function MintGB() {
                               <a
                                 className="logotwitter"
                                 href="https://twitter.com/DeFi_Lottery"
+                                target="_blank"
                                 title="Accédez à notre twitter">
                                 <i className="fa-brands fa-twitter" />
                               </a>
@@ -374,18 +375,19 @@ export default function MintGB() {
                               <a
                                 className="logodiscord"
                                 href="https://discord.gg/pYHEtRy76K"
+                                target="_blank"
                                 title="Accédez à notre discord communautaire officiel">
                                 <i className="fa-brands fa-discord" />
                               </a>
                             </div>
                           </div>
                             <li id="whitepaper">
-                              <a href="#" title="Accédez au White Paper">
+                              <a target="_blank" href="https://decentralized-lottery.gitbook.io/defi-lottery/" title="Accédez au White Paper">
                                 White Paper
                               </a>
                             </li>
                             <li id="apropos">
-                              <a href="/test#splitchange" title="Pour mieux comprendre notre projet">
+                              <a href="/HomeGB#splitchange" title="Pour mieux comprendre notre projet">
                                 A propos
                               </a>
                             </li><div className="buttons-container">
@@ -413,8 +415,8 @@ export default function MintGB() {
                             <Image
                               src="/image/discordpdp.png"
                               alt="bob"
-                              width={1200}
-                              height={300}
+                              max-width={1200}
+                              max-height={300}
                             />
                           </div>
                         </div>

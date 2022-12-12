@@ -59,7 +59,7 @@ export default function Header() {
           <li id="whitepaper" className='header'>
             <a 
               target="_blank"
-              href="youtube.com"
+              href="https://decentralized-lottery.gitbook.io/defi-lottery/"
               title="Accédez au White Paper"
             >
               White Paper
