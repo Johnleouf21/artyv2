@@ -5,7 +5,7 @@ import { useCountdown } from '../hooks/useCountdown';
 const ExpiredNotice = () => {
   return (
     <div>
-      <h2>Expired!!!</h2>
+      <h2>Wait for a new draw!!!</h2>
     </div>
   );
 };
