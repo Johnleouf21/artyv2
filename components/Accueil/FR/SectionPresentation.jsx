@@ -2,7 +2,8 @@ import { ethers } from 'ethers';
 import Contract from '../../../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
 import { useState, useEffect } from "react"
 import { ellipseAddress } from "../../../lib/utilities"
-import Countdown from '../../../hooks/Countdown';
+import CountdownTimer from '../../CountdownTimer';
+
 
 
 export default function SectionPresentation() {
@@ -11,6 +12,8 @@ export default function SectionPresentation() {
   const [accounts, setAccounts] = useState([]);
   const [loader, setLoader] = useState(true);
   const addressDL = "0x5D927D8d12c2B609860132a259299D1f50c54B96";
+  const targetTimestamp = 1671062239;
+  const timeLeft = targetTimestamp * 1000;
 
   useEffect(() => {
     getAccounts();
@@ -221,7 +224,7 @@ export default function SectionPresentation() {
               <h3>Time remaining before next draw</h3>
             </div>
             <div className="count-container-text-arg">
-              <Countdown/>
+            <CountdownTimer targetDate={timeLeft} />
               <div className="count-container-loader">
                 <div className="count-container-loader-bar" />
               </div>
@@ -230,6 +233,5 @@ export default function SectionPresentation() {
         </div>
       </div>
     </>
-    
     )
 }

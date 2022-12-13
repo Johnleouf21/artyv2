@@ -6,9 +6,8 @@ import "../public/css/mint.css"
 
 function MyApp({ Component, pageProps }) {
   return (
-
       <Component {...pageProps} />
-  
+
   )
 }
 

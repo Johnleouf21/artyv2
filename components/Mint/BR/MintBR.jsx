@@ -495,7 +495,7 @@ export default function MintBR() {
                                 <h2>PLEASE CONNECT</h2>
                               </div>
                               <div className="mint-section-text2">
-                                <h3>NaN tickets NFT&apos;s restants</h3>
+                                <h3> tickets NFT&apos;s restants</h3>
                                 <h3>Sale ends (day) (month) 2022 at (hour) GMT+1</h3>
                               </div>
                             </div>
@@ -519,10 +519,10 @@ export default function MintBR() {
                                 </div>
                                 <div className="mint-section1">
                                   <div className="mint-section2-menu">
-                                    <h2>NaN</h2>
+                                    <h2></h2>
                                   </div>
                                   <div className="mint-section2-menu">
-                                    <h2>NaN MATIC</h2>
+                                    <h2> MATIC</h2>
                                   </div>
                                 </div>
                               </div>
@@ -531,10 +531,10 @@ export default function MintBR() {
                               <div className="mint-btn-container">
                                 <button className="btn-mint">Please Connect</button>
                                 <div className="mint-btn-section">
-                                  <h4>Solde : <p>NaN</p></h4>
+                                  <h4>Solde : <p></p></h4>
                                 </div>
                                 <div className="mint-btn-section">
-                                  <h4>Cashprize : <p>NaN</p></h4>
+                                  <h4>Cashprize : <p></p></h4>
                                 </div>
                               </div>
                             </div>
