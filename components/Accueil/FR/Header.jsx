@@ -62,18 +62,18 @@ export default function Header() {
               href="https://decentralized-lottery.gitbook.io/defi-lottery/"
               title="Accédez au White Paper"
             >
-              White Paper
+              Whitepaper
             </a>
           </li>
           <li id="apropos">
             <a href="#splitchange" title="Pour mieux comprendre notre projet">
-              a propos
+              A propos
             </a>
           </li>
           <button className="btnmarketplace" title="Accédez à la collection NFT">
           <Link href="/Mint">
             <a>
-              <span>Marketplace NFT</span>
+              <span>Acheter NFT</span>
             </a>
             </Link>
           </button>
@@ -86,14 +86,14 @@ export default function Header() {
       <div className="mainPage-home-left-text">
         <h1>DeFi Lottery</h1>
         <div id="premierTrait" />
-        <h3>New ecosystem,</h3>
-        <h3>New rules, far from governments.</h3>
-        <h3>Lottery manage by you.</h3>
+        <h3>Nouvel écosystème,</h3>
+        <h3>Nouvelles règles, loin des gouvernements.</h3>
+        <h3>Lotterie dirigé par vous.</h3>
       </div>
       <div className="mainPage-home-left-btn">
         <div className="mainPage-home-left-btn-continue">
           <a className="mainPage-left-btn-continue-text" href="#splitchange">
-            <span>Continue</span>
+            <span>Continuer</span>
             <span>
               <svg
                 width="66px"

@@ -6,7 +6,7 @@ export default function Footer() {
       <div id="copyrightEtIcons">
         <div id="copyright">
           <span title="Jeunes Entrepreneurs">
-            © DeFi Lottery, All Rights Reserved
+            © DeFi Lottery, Tous droits réservés
           </span>
         </div>
         <div id="icons">

@@ -396,7 +396,7 @@ export default function MintFR() {
                             {ellipseAddress(address)}</button>
                             ) : (
                               <button className="walletBTN2" onClick={connecter}>
-                              Connect
+                              Se connecter
                             </button>
                           )}</div>
                         </div>
@@ -424,17 +424,17 @@ export default function MintFR() {
                           <div className="mint-zone-container">
                             <div className="mint-section-text0">
                               <div className="mint-section-text1">
-                                <h2>MINT TICKET</h2>
+                                <h2>ACHETER DES TICKETS</h2>
                               </div>
                               <div className="mint-section-text2">
                                 <h3>{(data.supplyLottery -(-data.alreadySupply)) - data.totalSupply} tickets NFT&apos;s restants</h3>
-                                <h3>Sale ends 24/12/2022 at 22h GMT+1</h3>
+                                <h3>La vente termine le 24/12/2022 à 22h GMT+1</h3>
                               </div>
                             </div>
                             <div className="mint-section">
                               <div className="mint-container0">
                                 <div className="mint-section0">
-                                  <h3>amount of tickets</h3>
+                                  <h3>Nombre de tickets</h3>
                                 </div>
                                 <div className="mint-section1">
                                   <div className="mint-section1-menu">
@@ -461,12 +461,12 @@ export default function MintFR() {
                             </div>
                             <div className="mint-section-btn">
                               <div className="mint-btn-container">
-                                <button className="btn-mint" onClick={enter}>Mint</button>
+                                <button className="btn-mint" onClick={enter}>Acheter</button>
                                 <div className="mint-btn-section">
                                   <h4>Solde : {address && (<p>{balanceInMatic} {chainData?.chain}</p>)}</h4>
                                 </div>
                                 <div className="mint-btn-section">
-                                  <h4>Cashprize : <p>{(data.getBalance/10**18 * 0.8).toFixed(2)} {chainData?.chain}</p></h4>
+                                  <h4>Cagnote : <p>{(data.getBalance/10**18 * 0.8).toFixed(2)} {chainData?.chain}</p></h4>
                                 </div>
                               </div>
                             </div>
@@ -492,17 +492,17 @@ export default function MintFR() {
                           <div className="mint-zone-container">
                             <div className="mint-section-text0">
                               <div className="mint-section-text1">
-                                <h2>PLEASE CONNECT</h2>
+                                <h2>CONNECTEZ VOUS</h2>
                               </div>
                               <div className="mint-section-text2">
                                 <h3> tickets NFT&apos;s restants</h3>
-                                <h3>Sale ends (day) (month) 2022 at (hour) GMT+1</h3>
+                                <h3>La vente termine le (jour) (mois) 2022 à (heure) GMT+1</h3>
                               </div>
                             </div>
                             <div className="mint-section">
                               <div className="mint-container0">
                                 <div className="mint-section0">
-                                  <h3>amount of tickets</h3>
+                                  <h3>Nombre de tickets</h3>
                                 </div>
                                 <div className="mint-section1">
                                   <div className="mint-section1-menu">
@@ -529,12 +529,12 @@ export default function MintFR() {
                             </div>
                             <div className="mint-section-btn">
                               <div className="mint-btn-container">
-                                <button className="btn-mint">Please Connect</button>
+                                <button className="btn-mint">Connectez vous</button>
                                 <div className="mint-btn-section">
                                   <h4>Solde : <p></p></h4>
                                 </div>
                                 <div className="mint-btn-section">
-                                  <h4>Cashprize : <p></p></h4>
+                                  <h4>Cagnote : <p></p></h4>
                                 </div>
                               </div>
                             </div>

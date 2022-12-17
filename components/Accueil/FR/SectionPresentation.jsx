@@ -29,15 +29,13 @@ export default function SectionPresentation() {
               
             const totalSupply = await contract.totalSupply();
             const cashprize = await contract.cashprize();
-            const supplyLottery = await contract.supplyLottery();
             const idLottery = await contract.idLottery();
             const alreadySupply = await contract.alreadySupply();
             const object = {
               "idLottery": String(idLottery),
-              "cashprize": String(cashprize), 
+              "cashprize": String((cashprize/10**18).toFixed(3)), 
               "totalSupply": String(totalSupply), 
-              "alreadySupply": String(alreadySupply),
-              "supplyLottery": String(supplyLottery)
+              "alreadySupply": String(alreadySupply)
               }
               setData(object);
           }
@@ -58,43 +56,39 @@ export default function SectionPresentation() {
       <>
       <div className="about">
         <div className="about-textcontainer">
-          <div className="leading-text">ABOUT</div>
+          <div className="leading-text">A propos</div>
           <h2>
-            We want to change the lottery system to make it safer and more
-            decentralized.
+            Nous souhaitons innover vers un système de lotterie sécurisé et décentralisé.
           </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto excepturi
-            magnam dignissimos nemo doloremque sed similique vero ullam nobis
-            nesciunt? Aut nisi modi error quisquam totam tempore! Illum, vel,
-            eligendi provident fuga, sunt aliquam quaerat natus optio quis ratione
-            ipsum dicta. Sint optio odit itaque reiciendis provident, quasi sit
-            quia.
+          <p>DeFi Lottery est une lotterie décentralisée qui utilise les technologies de la Blockchain
+              et des NFTs. En effet, <strong>les problèmes majeurs des lotteries traditionnelles et
+              centralisées</strong> sont que les fonds générés par ces entreprises sont redistribués
+              aux gagnants (quand il y en a) ne sont qu'une mineure partie de ce qu&apos;ils gagnent.
+              Nous avons pensé à ce problème et <strong>nous nous sommes aperçus que l&apos;utilisation
+              d&apos;un smart contract pour gérer les flux de transactions</strong> lié à une lotterie,
+              de l&apos;achat du ticket, au tirage au sort et enfin l&apos;obtention du cash prize par le gagnant,
+              directement envoyé dans son wallet via un bouton, sans intermediaire bancaire, est une solution
+              envisageable pour <strong>commencer à décentraliser ces industries qui pèsent des milliards</strong>
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quia
-            corrupti natus voluptatum autem in adipisci odio aliquid aperiam
-            dignissimos, nobis magnam! At molestiae aut minus adipisci facilis
-            possimus aliquam provident quibusdam, eius architecto sunt saepe dicta
-            quod harum totam praesentium qui rem ex deserunt ducimus unde? Possimus
-            alias repellat, dicta, illo tempora facere quisquam unde reiciendis
-            dolorum, facilis sed itaque! Autem harum quod iusto corporis assumenda
-            facere quasi adipisci temporibus illo natus, laborum magnam repellat
-            dignissimos dolor! Nulla sunt, aliquid assumenda id perferendis quasi
-            ipsam animi hic, ex nesciunt ea vitae atque voluptatibus. Perspiciatis
-            fugiat ex quasi necessitatibus aliquid.
+          <p><strong>Un smart contract</strong> est un code informatique executé sur la blockchain,
+              leurs avantages est qu&apos;une fois déployé, ils deviennent <strong>immuable</strong>, personne 
+              ne peux les modifier, <strong>transparent</strong> grâce au fait qu&apos;il sont déployé sur une
+              blockchain publique comme Ethereum, et pour finir ils sont <strong>intermédiaires et automatiques</strong>.
+          </p>
+          <p><strong>Le smart contract</strong> déployé par la team de DeFi Lottery est un garantit de sécurité,
+           de transparence et d'automatisation de cette discipline. Pour les curieux le code de notre smart contract
+            est disponible ici ou vous pouvez retrouver toutes les infos détaillées sur le projet sur notre 
+            <a href="https://decentralized-lottery.gitbook.io/defi-lottery/" target='_blank'> whitepaper
+              <i className="fa-solid fa-up-right-from-square" />
+            </a>
           </p>
         </div>
-        {/* <div class="about-imgcontainer">
-              <img src="image/AATXAJzV0fmbd6yUSRS_EdeKOBKrmBZ7p4t9pwCB7Q=s900-c-k-c0xffffffff-no-rj-mo.webp" class="presentationImg1">
-              <h4>Lorem ipsum dolor sit amet consectetur</h4>
-          </div> */}
       </div>
       <div className="realization">
         <div className="realization-container">
           <div className="realization-container-text">
-            <div className="leading-text">PROCESS</div>
-            <h2>How the lottery works.</h2>
+            <div className="leading-text">DEROULEMENT</div>
+            <h2>Comment fonctionne notre lotterie</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quia
               corrupti natus voluptatum autem in adipisci odio aliquid aperiam
@@ -114,58 +108,54 @@ export default function SectionPresentation() {
         <div className="realization-roadmap">
           <div className="realization-roadmap-container">
             <div className="realization-roadmap-container-text">
-              <h3>How the lottery works during the week</h3>
+              <h3>Comment fonctionne la lotterie pendant la semaine</h3>
             </div>
             <div className="realization-roadmap-container-bricks">
               <div className="realization-roadmap-container-bricks-a">
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-rocket" />
                 </div>
-                <h4>Opening of the lottery</h4>
-                <p>Day 1</p>
+                <h4>Ouverture de la lotterie</h4>
+                <p>Jour 1</p>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-                  consequatur!
+                  Les tickets pour la lotterie hebdomadaire sont disponible à l&apos;achat
                 </p>
               </div>
               <div className="realization-roadmap-container-bricks-b">
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-hammer" />
                 </div>
-                <h4>Mint</h4>
-                <p>Day 1-7</p>
+                <h4>Achat</h4>
+                <p>Jour 1-7</p>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-                  consequatur!
+                  Vous avez 7 jours pour acheter vos tickets avant le tirage au sort chaque vendredi à partir de 20h
                 </p>
               </div>
               <div className="realization-roadmap-container-bricks-c">
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-hand" />
                 </div>
-                <h4>The mint is stopped</h4>
-                <p>Day 7</p>
+                <h4>La lotterie ferme</h4>
+                <p>Jour 7</p>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-                  consequatur!
+                  L'achat de tickets n'est plus possible
                 </p>
               </div>
               <div className="realization-roadmap-container-bricks-d">
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-dice" />
                 </div>
-                <h4>Draw of the winner and his recieve the cashprize</h4>
-                <p>Day 7</p>
+                <h4>Tirage et récompense du gagnant</h4>
+                <p>jour 7</p>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam,
-                  consequatur!
+                  Le smart contract effectue le tirage au sort du gagnant et le montant de la récompense directement versé sur son portefeuille
                 </p>
               </div>
             </div>
             <h4>
-              More details{" "}
+              Plus de détails{" "}
               <a href="#">
-                on white paper
+                Sur le whitepaper
                 <i className="fa-solid fa-up-right-from-square" />
               </a>
             </h4>
@@ -177,10 +167,10 @@ export default function SectionPresentation() {
           <div className="count-container">
             <div className="count-container-total">
               <div className="count-container-text">
-                <h3>Total cashprize win in {data.idLottery-1} weeks</h3>
+                <h3>Récompenses totales gagnées depuis {data.idLottery-1} semaines</h3>
               </div>
               <div className="count-container-text-arg">
-                <h2>{(data.cashprize/10**18).toFixed(3)} $</h2>
+                <h2>{data.cashprize} MATIC</h2>
               </div>
             </div>
             <div className="count-container-participants">
@@ -188,9 +178,7 @@ export default function SectionPresentation() {
                 <div className="count-container-text-container-child">
                   <div className="count-container-text">
                     <h3>
-                      <i className="fa-solid fa-person-circle-check" /> Actual
-                      participants
-                    </h3>
+                      <i className="fa-solid fa-person-circle-check" /> Nombre de participants sur la lotterie en cours                    </h3>
                   </div>
                   <div className="count-container-text-arg">
                     <h2>{data.totalSupply-data.alreadySupply}</h2>
@@ -199,7 +187,7 @@ export default function SectionPresentation() {
                 <div className="count-container-text-container-child">
                   <div className="count-container-text">
                     <h3>
-                      <i className="fa-solid fa-users" /> Total participants
+                      <i className="fa-solid fa-users" /> Nombre de participants sur toutes les lotteries
                     </h3>
                   </div>
                   <div className="count-container-text-arg">
@@ -209,7 +197,7 @@ export default function SectionPresentation() {
                 <div className="count-container-text-container-child">
                   <div className="count-container-text">
                     <h3>
-                      <i className="fa-solid fa-crown" /> Total winner
+                      <i className="fa-solid fa-crown" /> Nombre de gagnants depuis {data.idLottery-1} semaines
                     </h3>
                   </div>
                   <div className="count-container-text-arg">
@@ -221,7 +209,7 @@ export default function SectionPresentation() {
           </div>
           <div className="count-container1">
             <div className="count-container-text">
-              <h3>Time remaining before next draw</h3>
+              <h3>Temps restant avant fermeture de la lotterie en cours</h3>
             </div>
             <div className="count-container-text-arg">
             <CountdownTimer targetDate={timeLeft} />
