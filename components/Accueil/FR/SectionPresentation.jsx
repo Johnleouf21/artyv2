@@ -90,18 +90,14 @@ export default function SectionPresentation() {
             <div className="leading-text">DEROULEMENT</div>
             <h2>Comment fonctionne notre lotterie</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quia
-              corrupti natus voluptatum autem in adipisci odio aliquid aperiam
-              dignissimos, nobis magnam! At molestiae aut minus adipisci facilis
-              possimus aliquam provident quibusdam, eius architecto sunt saepe dicta
-              quod harum totam praesentium qui rem ex deserunt ducimus unde?
-              Possimus alias repellat, dicta, illo tempora facere quisquam unde
-              reiciendis dolorum, facilis sed itaque! Autem harum quod iusto
-              corporis assumenda facere quasi adipisci temporibus illo natus,
-              laborum magnam repellat dignissimos dolor! Nulla sunt, aliquid
-              assumenda id perferendis quasi ipsam animi hic, ex nesciunt ea vitae
-              atque voluptatibus. Perspiciatis fugiat ex quasi necessitatibus
-              aliquid.
+            Et bien le fonctionnement de la loterie n&apos;est pas si difficile...
+            Tout d&apos;abord, nous déployons le contrat intelligent sur la blockchain
+            Ensuite, nous ouvrons la vente pour tout le monde et vous avez 1 semaine
+            pour acheter votre ou vos billets pour participer à la loterie hebdomadaire.
+            Le montant que vous paierez sera automatiquement et directement stocké sur
+            le contrat intelligent que vous pouvez TOUS conslter !
+            Enfin, grâce à la technologie blockchain, le tirage au sort
+            est effectué par le smart contract, ce qui le sécurise et le gagnant reçoit automatiquement son lot !
             </p>
           </div>
         </div>
