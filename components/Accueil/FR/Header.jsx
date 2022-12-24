@@ -21,8 +21,9 @@ export default function Header() {
             <div className="iconsnavbartwitter">
               <a
                 className="logotwitter"
-                href="https://twitter.com/?lang=fr"
+                href="https://twitter.com/DeFi_Lottery"
                 title="Accédez à notre twitter"
+                target="_blank"
               >
                 <i className="fa-brands fa-twitter" />
               </a>
@@ -30,8 +31,9 @@ export default function Header() {
             <div className="iconsnavbardiscord">
               <a
                 className="logodiscord"
-                href="https://discord.gg/GqsyHETQM2"
+                href="https://discord.gg/ah4M5jyfF7"
                 title="Accédez à notre discord communautaire officiel"
+                target="_blank"
               >
                 <i className="fa-brands fa-discord" />
               </a>
@@ -49,11 +51,11 @@ export default function Header() {
                 </Link>
             </li>
             <li>
-                <Link href="HomeBR">
+                {/*<Link href="HomeBR">
                     <a>
                         <BR width={23}/>
                     </a>
-                </Link>
+    </Link>*/}
             </li>
           </div>
           <li id="whitepaper" className='header'>
@@ -87,7 +89,7 @@ export default function Header() {
         <h1>DeFi Lottery</h1>
         <div id="premierTrait" />
         <h3>Nouvel écosystème,</h3>
-        <h3>Nouvelles règles, loin des gouvernements.</h3>
+        <h3>Nouvelles règles.</h3>
         <h3>Lotterie dirigé par vous.</h3>
       </div>
       <div className="mainPage-home-left-btn">

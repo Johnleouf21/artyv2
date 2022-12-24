@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import Contract from '../../../artifacts/contracts/DefiLotteryV2.sol/DefiLotteryV2.json';
 import { useState, useEffect } from "react"
 import { ellipseAddress } from "../../../lib/utilities"
-import CountdownTimer from '../../CountdownTimer';
+import CountdownTimerFR from '../../CountdownTimerFR';
 
 
 
@@ -58,14 +58,14 @@ export default function SectionPresentation() {
         <div className="about-textcontainer">
           <div className="leading-text">A propos</div>
           <h2>
-            Nous souhaitons innover vers un système de lotterie sécurisé et décentralisé.
+            Nous souhaitons innover vers un système de loterie sécurisé et décentralisé.
           </h2>
-          <p>DeFi Lottery est une lotterie décentralisée qui utilise les technologies de la Blockchain
+          <p>DeFi Lottery est une loterie décentralisée qui utilise les technologies de la Blockchain
               et des NFTs. En effet, <strong>les problèmes majeurs des lotteries traditionnelles et
               centralisées</strong> sont que les fonds générés par ces entreprises sont redistribués
               aux gagnants (quand il y en a) ne sont qu'une mineure partie de ce qu&apos;ils gagnent.
               Nous avons pensé à ce problème et <strong>nous nous sommes aperçus que l&apos;utilisation
-              d&apos;un smart contract pour gérer les flux de transactions</strong> lié à une lotterie,
+              d&apos;un smart contract pour gérer les flux de transactions</strong> lié à une loterie,
               de l&apos;achat du ticket, au tirage au sort et enfin l&apos;obtention du cash prize par le gagnant,
               directement envoyé dans son wallet via un bouton, sans intermediaire bancaire, est une solution
               envisageable pour <strong>commencer à décentraliser ces industries qui pèsent des milliards</strong>
@@ -88,7 +88,7 @@ export default function SectionPresentation() {
         <div className="realization-container">
           <div className="realization-container-text">
             <div className="leading-text">DEROULEMENT</div>
-            <h2>Comment fonctionne notre lotterie</h2>
+            <h2>Comment fonctionne notre loterie</h2>
             <p>
             Et bien le fonctionnement de la loterie n&apos;est pas si difficile...
             Tout d&apos;abord, nous déployons le contrat intelligent sur la blockchain
@@ -104,17 +104,17 @@ export default function SectionPresentation() {
         <div className="realization-roadmap">
           <div className="realization-roadmap-container">
             <div className="realization-roadmap-container-text">
-              <h3>Comment fonctionne la lotterie pendant la semaine</h3>
+              <h3>Comment fonctionne la loterie pendant la semaine</h3>
             </div>
             <div className="realization-roadmap-container-bricks">
               <div className="realization-roadmap-container-bricks-a">
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-rocket" />
                 </div>
-                <h4>Ouverture de la lotterie</h4>
+                <h4>Ouverture de la loterie</h4>
                 <p>Jour 1</p>
                 <p>
-                  Les tickets pour la lotterie hebdomadaire sont disponible à l&apos;achat
+                  Les tickets pour la loterie hebdomadaire sont disponible à l&apos;achat
                 </p>
               </div>
               <div className="realization-roadmap-container-bricks-b">
@@ -131,7 +131,7 @@ export default function SectionPresentation() {
                 <div id="realization-roadmap-container-bricks-i">
                   <i className="fa-solid fa-hand" />
                 </div>
-                <h4>La lotterie ferme</h4>
+                <h4>La loterie ferme</h4>
                 <p>Jour 7</p>
                 <p>
                   L'achat de tickets n'est plus possible
@@ -150,7 +150,7 @@ export default function SectionPresentation() {
             </div>
             <h4>
               Plus de détails{" "}
-              <a href="#">
+              <a href="https://decentralized-lottery.gitbook.io/defi-lottery/">
                 Sur le whitepaper
                 <i className="fa-solid fa-up-right-from-square" />
               </a>
@@ -174,7 +174,7 @@ export default function SectionPresentation() {
                 <div className="count-container-text-container-child">
                   <div className="count-container-text">
                     <h3>
-                      <i className="fa-solid fa-person-circle-check" /> Nombre de participants sur la lotterie en cours                    </h3>
+                      <i className="fa-solid fa-person-circle-check" /> Nombre de participants sur la loterie en cours                    </h3>
                   </div>
                   <div className="count-container-text-arg">
                     <h2>{data.totalSupply-data.alreadySupply}</h2>
@@ -205,10 +205,10 @@ export default function SectionPresentation() {
           </div>
           <div className="count-container1">
             <div className="count-container-text">
-              <h3>Temps restant avant fermeture de la lotterie en cours</h3>
+              <h3>Temps restant avant fermeture de la loterie en cours</h3>
             </div>
             <div className="count-container-text-arg">
-            <CountdownTimer targetDate={timeLeft} />
+            <CountdownTimerFR targetDate={timeLeft} />
               <div className="count-container-loader">
                 <div className="count-container-loader-bar" />
               </div>

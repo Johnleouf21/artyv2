@@ -21,8 +21,9 @@ export default function HeaderGB() {
         <div className="iconsnavbartwitter">
           <a
             className="logotwitter"
-            href="https://twitter.com/?lang=fr"
-            title="Accédez à notre twitter"
+            href="https://twitter.com/DeFi_Lottery"
+            title="Go on our Twitter"
+            target="_blank"
           >
             <i className="fa-brands fa-twitter" />
           </a>
@@ -30,8 +31,9 @@ export default function HeaderGB() {
         <div className="iconsnavbardiscord">
           <a
             className="logodiscord"
-            href="https://discord.gg/GqsyHETQM2"
-            title="Accédez à notre discord communautaire officiel"
+            href="https://discord.gg/ah4M5jyfF7"
+            title="Go on our official Discord"
+            target="_blank"
           >
             <i className="fa-brands fa-discord" />
           </a>
@@ -51,28 +53,28 @@ export default function HeaderGB() {
             </Link>
         </li>
         <li>
-            <Link href="HomeBR">
+            {/*<Link href="HomeBR">
                 <a>
                     <BR width={23}/>
                 </a>
-            </Link>
+  </Link>*/}
         </li>
       </div>
       <li id="whitepaper" className='header'>
         <a 
           target="_blank"
           href="https://decentralized-lottery.gitbook.io/defi-lottery/"
-          title="Accédez au White Paper"
+          title="Read the Whitepaper"
         >
           White Paper
         </a>
       </li>
       <li id="apropos">
-        <a href="#splitchange" title="Pour mieux comprendre notre projet">
-          a propos
+        <a href="#splitchange" title="Descrption of our project">
+          About
         </a>
       </li>
-      <button className="btnmarketplace" title="Accédez à la collection NFT">
+      <button className="btnmarketplace" title="Mint NFT">
       <Link href="/Mint_GB">
         <a>
           <span>Marketplace NFT</span>
@@ -89,7 +91,7 @@ export default function HeaderGB() {
     <h1>DeFi Lottery</h1>
     <div id="premierTrait" />
     <h3>New ecosystem,</h3>
-    <h3>New rules, far from governments.</h3>
+    <h3>New rules.</h3>
     <h3>Lottery manage by you.</h3>
   </div>
   <div className="mainPage-home-left-btn">
